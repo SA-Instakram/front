@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
+import { Wrapper } from "./styles";
+import Header from "../../components/Header/header";
+
 export default function Main() {
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <h1>Instakram</h1>
-    </div>
+    <Wrapper>
+      <Header />
+    </Wrapper>
   );
 }
