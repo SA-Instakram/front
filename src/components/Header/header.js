@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Wrapper } from "./styles";
+// import newFeedIcon from "../../../public/icons/newFeed.svg";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -8,16 +9,14 @@ export default function Header() {
     <Wrapper>
       <h1>Instakram</h1>
       <div>
-        <span>검색</span>
-        <img src={"../public/icons/newFeed.svg"} />
-        <span>글쓰기</span>
-        <span
+        <img src={"/icons/search.svg"}></img>
+        <img src={"/icons/plus-square.svg"} />
+        <img
+          src={"/icons/user.svg"}
           onClick={() => {
             navigate("/profile");
           }}
-        >
-          프로필
-        </span>
+        />
       </div>
     </Wrapper>
   );
