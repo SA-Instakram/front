@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Article, SpaceBetweenDiv, Wrapper } from "./styles";
+import { commentViewClickState } from "../../states/states";
+import { useRecoilState } from "recoil";
 
 export default function FeedCard() {
   const navigate = useNavigate();
+  const [, setCommentViewClick] = useRecoilState(commentViewClickState);
+
+  const handleClickComment = () => {
+    setCommentViewClick(true);
+  };
 
   return (
     <Wrapper>
@@ -28,6 +35,9 @@ export default function FeedCard() {
         <div>
           <img src="/icons/heart.svg" alt="like" />
           <img
+            onClick={() => {
+              handleClickComment();
+            }}
             style={{ marginLeft: "10px" }}
             src="/icons/message-circle.svg"
             alt="comment"
