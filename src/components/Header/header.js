@@ -7,8 +7,8 @@ export default function Header() {
 
   return (
     <Wrapper>
-      <h1>Instakram</h1>
-      <div>
+      <h1 style={{ marginLeft: "16px" }}>Instakram</h1>
+      <div style={{ marginRight: "16px" }}>
         <img src={"/icons/search.svg"}></img>
         <img src={"/icons/plus-square.svg"} />
         <img

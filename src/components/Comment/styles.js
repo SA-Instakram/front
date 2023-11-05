@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: flex;
@@ -70,4 +70,17 @@ export const CloseButton = styled.img`
   right: 14px;
   top: 14px;
   cursor: pointer;
+`;
+
+export const NewCommentBox = styled.div`
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 16.5px;
+  background-color: #ffff00;
+  width: 100%;
+`;
+
+export const CommentInput = styled.input`
+  margin: 20px;
 `;

@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { ArticleContext, CloseButton, Wrapper } from "./styles";
+import {
+  ArticleContext,
+  CloseButton,
+  CommentInput,
+  NewCommentBox,
+  Wrapper,
+} from "./styles";
 import { useRecoilState } from "recoil";
 import { commentViewClickState } from "../../states/states";
 import UserComment from "./userComment";
@@ -17,10 +23,6 @@ export default function Comment() {
     "Love it!",
     "Followed!",
     "Looks amazing!",
-    "What's today's plan?",
-    "Beautiful photo!",
-    "Wow, thumbs up!",
-    "Followed you!",
   ];
 
   return (
@@ -46,6 +48,11 @@ export default function Comment() {
         {commonComments.map((key, idx) => {
           return <UserComment comment={key} />;
         })}
+        <NewCommentBox>
+          <img src="/icons/user.svg" alt="profile" />
+          <CommentInput />
+          <label>게시</label>
+        </NewCommentBox>
       </div>
     </Wrapper>
   );

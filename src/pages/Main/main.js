@@ -16,10 +16,10 @@ export default function Main() {
   return (
     <Wrapper>
       <Header />
+      <FeedCard />
+      <FeedCard />
+      <FeedCard />
       {commentViewClick ? <Comment /> : null}
-      <FeedCard />
-      <FeedCard />
-      <FeedCard />
     </Wrapper>
   );
 }
