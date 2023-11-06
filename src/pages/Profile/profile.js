@@ -1,7 +1,14 @@
+import { useState } from "react";
 import Header from "../../components/Header/header";
 import { Wrapper } from "./styles";
+import FollowList from "../../components/FollowList/followList";
+import { useRecoilState } from "recoil";
+import { followListClickState } from "../../states/states";
 
 export default function Profile() {
+  const [followListClick, setFollowListClick] =
+    useRecoilState(followListClickState);
+
   const images = [
     "vava.jpeg",
     "vava1.jpeg",
@@ -14,6 +21,7 @@ export default function Profile() {
   return (
     <Wrapper>
       <Header />
+      {followListClick ? <FollowList /> : null}
       <div style={{ padding: "16px" }}>
         <div style={{ display: "flex" }}>
           <img
@@ -64,11 +72,21 @@ export default function Profile() {
           <label>게시물</label>
           <label>3</label>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column" }}
+          onClick={() => {
+            setFollowListClick(true);
+          }}
+        >
           <label>팔로워</label>
           <label>31</label>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column" }}
+          onClick={() => {
+            setFollowListClick(true);
+          }}
+        >
           <label>팔로우</label>
           <label>31</label>
         </div>
