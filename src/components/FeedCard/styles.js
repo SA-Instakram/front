@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   margin: 16px;
   background-color: #ffffff;
 
-  border-radius: 18px;
+  border-radius: 10px;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.06),
     -2px 0 4px rgba(0, 0, 0, 0.06), 2px 0 4px rgba(0, 0, 0, 0.06);
 `;

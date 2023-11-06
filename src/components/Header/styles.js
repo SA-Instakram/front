@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  padding: 8px 16px;
+  position: fixed;
+  top: 0;
+  padding: 8px 0px;
+  width: 100%;
+  background-color: #ffffff;
   justify-content: space-between;
   align-items: center;
   text-align: baseline;
   border-bottom: 1px solid #dbdbdb;
+  z-index: 2;
 
   > h1 {
     all: unset;
