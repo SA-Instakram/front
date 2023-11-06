@@ -75,9 +75,9 @@ export const CloseButton = styled.img`
 export const NewCommentBox = styled.div`
   display: flex;
   align-items: center;
-  position: fixed;
+  ${"" /* position: fixed; */}
   bottom: 16.5px;
-  background-color: #ffff00;
+  background-color: #fff0f0;
   width: 100%;
 `;
 

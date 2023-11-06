@@ -51,7 +51,7 @@ export default function Comment() {
         <NewCommentBox>
           <img src="/icons/user.svg" alt="profile" />
           <CommentInput />
-          <label>게시</label>
+          <label style={{ color: "#0000ff" }}>게시</label>
         </NewCommentBox>
       </div>
     </Wrapper>
