@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Wrapper, loginbuttonStyle, headingstyle, CustomInput, BoldText } from './styles';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Wrapper,
+  loginbuttonStyle,
+  headingstyle,
+  CustomInput,
+  BoldText,
+} from "./styles";
 export default function Loginpage() {
   const navigate = useNavigate();
-  let [Email, setEmail] = useState('');
-  let [Password, setPassword] = useState('');
+  let [Email, setEmail] = useState("");
+  let [Password, setPassword] = useState("");
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
   };
@@ -14,7 +20,7 @@ export default function Loginpage() {
 
   return (
     <Wrapper>
-      <form style={{ display: 'flex', flexDirection: 'column' }}>
+      <form style={{ display: "flex", flexDirection: "column" }}>
         <h1 style={headingstyle}>Instakram</h1>
         <label>Email</label>
         <CustomInput
@@ -36,7 +42,7 @@ export default function Loginpage() {
         <button
           style={loginbuttonStyle}
           onClick={() => {
-            navigate('/');
+            navigate("/");
           }}
         >
           <BoldText>로그인</BoldText>

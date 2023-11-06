@@ -1,8 +1,8 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Main from './pages/Main/main';
-import Profile from './pages/Profile/profile';
-import Loginpage from './pages/login/login';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Main from "./pages/Main/main";
+import Profile from "./pages/Profile/profile";
+import Loginpage from "./pages/login/login";
 
 function App() {
   return (
