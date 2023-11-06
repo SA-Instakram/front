@@ -11,8 +11,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> Stashed changes
 =======
     "react-scripts": "^5.0.1",
 >>>>>>> Stashed changes
