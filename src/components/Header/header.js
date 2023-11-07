@@ -17,7 +17,12 @@ export default function Header() {
       </h1>
       <div style={{ marginRight: "16px" }}>
         <img src={"/icons/search.svg"}></img>
-        <img src={"/icons/plus-square.svg"} />
+        <img
+          src={"/icons/plus-square.svg"}
+          onClick={() => {
+            navigate("/newfeed");
+          }}
+        />
         <img
           src={"/icons/user.svg"}
           onClick={() => {
