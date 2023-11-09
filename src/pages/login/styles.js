@@ -16,6 +16,7 @@ export const loginbuttonStyle = {
   color: "white",
   border: "1px solid #ccc",
   borderRadius: "10px",
+  margin: "10px",
 };
 
 export const CustomInput = styled.input`
@@ -30,4 +31,14 @@ export const BoldText = styled.p`
   font-size: 15px;
   font-weight: bold;
   margin: 7px;
+`;
+
+export const Registerquestion = styled.label`
+  margin: 10px;
+`;
+
+export const Registerletter = styled.label`
+  cursor: pointer;
+  color: blue;
+  padding: 5px;
 `;
