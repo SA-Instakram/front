@@ -24,11 +24,7 @@ export default function FeedCard() {
       </SpaceBetweenDiv>
 
       <div>
-        <img
-          width="100%"
-          src="https://scontent-ssn1-1.cdninstagram.com/v/t39.30808-6/399151431_18320227459106835_8366770210443339126_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDgweDEwODAuc2RyIn0&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=103&_nc_ohc=-hQz_ROJ9H4AX-V75C8&edm=AJ9x6zYAAAAA&ccb=7-5&ig_cache_key=MzIyODU1NTkzNzM4ODU3NzIxOQ%3D%3D.2-ccb7-5&oh=00_AfDiuIQwpMKnOw6fDM0m_w72pbQgspg99uB7oQbrxSAtOw&oe=654AF2DA&_nc_sid=65462d"
-          alt="photos"
-        />
+        <img width="100%" src="images/vava.jpeg" alt="photos" />
       </div>
 
       <SpaceBetweenDiv>
