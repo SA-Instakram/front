@@ -4,14 +4,17 @@ import Header from "../../components/Header/header";
 import FeedCard from "../../components/FeedCard/feedCard";
 import { useRecoilState } from "recoil";
 import Comment from "../../components/Comment/comment";
-import { commentViewClickState } from "../../states/states";
+import {
+  commentViewClickState,
+  feedMoreButtonClickState,
+} from "../../states/states";
+import OptionModal from "../../components/Modals/optionModal";
 
 export default function Main() {
   const navigate = useNavigate();
 
-  const [commentViewClick, setCommentViewClick] = useRecoilState(
-    commentViewClickState
-  );
+  const [commentViewClick] = useRecoilState(commentViewClickState);
+  const [feedMoreButtonClick] = useRecoilState(feedMoreButtonClickState);
 
   return (
     <Wrapper>
@@ -20,6 +23,7 @@ export default function Main() {
       <FeedCard />
       <FeedCard />
       {commentViewClick ? <Comment /> : null}
+      {feedMoreButtonClick ? <OptionModal /> : null}
     </Wrapper>
   );
 }

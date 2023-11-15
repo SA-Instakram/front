@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Article, SpaceBetweenDiv, Wrapper } from "./styles";
-import { commentViewClickState } from "../../states/states";
+import {
+  commentViewClickState,
+  feedMoreButtonClickState,
+} from "../../states/states";
 import { useRecoilState } from "recoil";
 
 export default function FeedCard() {
   const navigate = useNavigate();
   const [, setCommentViewClick] = useRecoilState(commentViewClickState);
+  const [, setFeedMoreButtonClick] = useRecoilState(feedMoreButtonClickState);
 
   const handleClickComment = () => {
     setCommentViewClick(true);
@@ -19,7 +23,13 @@ export default function FeedCard() {
           <span style={{ marginLeft: "10px" }}>NickName</span>
         </div>
         <div>
-          <img src="/icons/more-horizontal.svg" alt="moreInfo" />
+          <img
+            onClick={() => {
+              setFeedMoreButtonClick(true);
+            }}
+            src="/icons/more-horizontal.svg"
+            alt="moreInfo"
+          />
         </div>
       </SpaceBetweenDiv>
 
