@@ -9,3 +9,8 @@ export const followListClickState = atom({
   key: "followListClickState",
   default: false,
 });
+
+export const feedMoreButtonClickState = atom({
+  key: "feedMoreButtonClickState",
+  default: false,
+});
