@@ -39,6 +39,11 @@ export const Wrapper = styled.div`
     }
 
     > label {
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 15px;
+      cursor: pointer;
+
       &:first-child {
         color: red;
         font-weight: bold;
@@ -47,9 +52,6 @@ export const Wrapper = styled.div`
         margin-bottom: 0;
         border: none;
       }
-
-      font-size: 16px;
-      margin-bottom: 15px;
     }
   }
 `;

@@ -5,11 +5,14 @@ import {
   feedMoreButtonClickState,
 } from "../../states/states";
 import { useRecoilState } from "recoil";
+import { useState } from "react";
 
 export default function FeedCard() {
   const navigate = useNavigate();
+
   const [, setCommentViewClick] = useRecoilState(commentViewClickState);
   const [, setFeedMoreButtonClick] = useRecoilState(feedMoreButtonClickState);
+  const [isHeartClick, setIsHeartClick] = useState(false);
 
   const handleClickComment = () => {
     setCommentViewClick(true);
@@ -19,8 +22,23 @@ export default function FeedCard() {
     <Wrapper>
       <SpaceBetweenDiv>
         <div>
-          <img src="/icons/user.svg" alt="profile" />
-          <span style={{ marginLeft: "10px" }}>NickName</span>
+          <img
+            onClick={() => {
+              // TODO navigate userId로 바꿔야함
+              navigate("/ji-hunc");
+            }}
+            src="/icons/user.svg"
+            alt="profile"
+          />
+          <span
+            onClick={() => {
+              // TODO navigate userId로 바꿔야함
+              navigate("/ji-hunc");
+            }}
+            style={{ marginLeft: "10px" }}
+          >
+            NickName
+          </span>
         </div>
         <div>
           <img
@@ -39,7 +57,24 @@ export default function FeedCard() {
 
       <SpaceBetweenDiv>
         <div>
-          <img src="/icons/heart.svg" alt="like" />
+          {isHeartClick ? (
+            <img
+              onClick={() => {
+                setIsHeartClick(false);
+              }}
+              src="/icons/heart_fill.svg"
+              alt="like_fill"
+            />
+          ) : (
+            <img
+              onClick={() => {
+                setIsHeartClick(true);
+              }}
+              src="/icons/heart.svg"
+              alt="like"
+            />
+          )}
+
           <img
             onClick={() => {
               handleClickComment();

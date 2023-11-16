@@ -20,6 +20,14 @@ export const SpaceBetweenDiv = styled.div`
   > div {
     display: flex;
     align-items: center;
+
+    > span {
+      cursor: pointer;
+    }
+
+    > img {
+      cursor: pointer;
+    }
   }
 `;
 
