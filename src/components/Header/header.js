@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Wrapper } from "./styles";
-// import newFeedIcon from "../../../public/icons/newFeed.svg";
+import { userInfoState } from "../../states/userStates";
+import { useRecoilState } from "recoil";
 
 export default function Header() {
   const navigate = useNavigate();
+  const [userInfo] = useRecoilState(userInfoState);
 
   return (
     <Wrapper>
@@ -16,18 +18,20 @@ export default function Header() {
         Instakram
       </h1>
       <div style={{ marginRight: "16px" }}>
-        <img src={"/icons/search.svg"}></img>
+        <img src={"/icons/search.svg"} alt="search icon"></img>
         <img
           src={"/icons/plus-square.svg"}
           onClick={() => {
             navigate("/newfeed");
           }}
+          alt="newfeed icon"
         />
         <img
           src={"/icons/user.svg"}
           onClick={() => {
-            navigate("/profile");
+            navigate(`/${userInfo.userId}`);
           }}
+          alt="user icon"
         />
       </div>
     </Wrapper>

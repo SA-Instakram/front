@@ -4,10 +4,12 @@ import { Wrapper } from "./styles";
 import FollowList from "../../components/FollowList/followList";
 import { useRecoilState } from "recoil";
 import { followListClickState } from "../../states/states";
+import { userInfoState } from "../../states/userStates";
 
 export default function Profile() {
   const [followListClick, setFollowListClick] =
     useRecoilState(followListClickState);
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
 
   const images = [
     "vava.jpeg",
@@ -39,7 +41,7 @@ export default function Profile() {
               alignItems: "start",
             }}
           >
-            <label>Messi is GOD</label>
+            <label>{userInfo.userId}</label>
             <button style={{ marginTop: "10px" }}>프로필 편집 or 팔로우</button>
           </div>
         </div>
@@ -52,9 +54,9 @@ export default function Profile() {
             alignItems: "start",
           }}
         >
-          <label>리오넬 메시</label>
-          <label>KMU SOFTWARE 19</label>
-          <a href="https://github.com/SA-Instakram/front">github.com</a>
+          <label>{userInfo.name}</label>
+          <label>{userInfo.description}</label>
+          <a href={userInfo.link}>{userInfo.link}</a>
         </div>
       </div>
 
@@ -70,7 +72,7 @@ export default function Profile() {
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label>게시물</label>
-          <label>3</label>
+          <label>{userInfo.article}</label>
         </div>
         <div
           style={{ display: "flex", flexDirection: "column" }}
@@ -79,7 +81,7 @@ export default function Profile() {
           }}
         >
           <label>팔로워</label>
-          <label>31</label>
+          <label>{userInfo.followers}</label>
         </div>
         <div
           style={{ display: "flex", flexDirection: "column" }}
@@ -88,7 +90,7 @@ export default function Profile() {
           }}
         >
           <label>팔로우</label>
-          <label>31</label>
+          <label>{userInfo.followings}</label>
         </div>
       </div>
 

@@ -18,9 +18,11 @@ export const Wrapper = styled.div`
     all: unset;
     font-size: 26px;
     font-weight: 600;
+    cursor: pointer;
   }
 
   > div > img {
     margin-left: 14px;
+    cursor: pointer;
   }
 `;
