@@ -6,15 +6,18 @@ import { useRecoilState } from "recoil";
 import Comment from "../../components/Comment/comment";
 import {
   commentViewClickState,
+  deleteModalState,
   feedMoreButtonClickState,
 } from "../../states/states";
 import OptionModal from "../../components/Modals/optionModal";
+import DeleteModal from "../../components/Modals/deleteModal";
 
 export default function Main() {
   const navigate = useNavigate();
 
   const [commentViewClick] = useRecoilState(commentViewClickState);
   const [feedMoreButtonClick] = useRecoilState(feedMoreButtonClickState);
+  const [deleteModal] = useRecoilState(deleteModalState);
 
   return (
     <Wrapper>
@@ -24,6 +27,7 @@ export default function Main() {
       <FeedCard />
       {commentViewClick ? <Comment /> : null}
       {feedMoreButtonClick ? <OptionModal /> : null}
+      {deleteModal ? <DeleteModal /> : null}
     </Wrapper>
   );
 }
