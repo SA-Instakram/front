@@ -14,3 +14,8 @@ export const feedMoreButtonClickState = atom({
   key: "feedMoreButtonClickState",
   default: false,
 });
+
+export const deleteModalState = atom({
+  key: "deleteModalState",
+  default: false,
+});
