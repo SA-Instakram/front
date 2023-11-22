@@ -19,3 +19,8 @@ export const deleteModalState = atom({
   key: "deleteModalState",
   default: false,
 });
+
+export const signUpModalState = atom({
+  key: "signUpModalState",
+  default: false,
+});
