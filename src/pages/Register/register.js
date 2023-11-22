@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
+import { signUpModalState } from "../../states/states";
 import { useNavigate } from "react-router-dom";
 import {
   Wrapper,
@@ -7,6 +9,7 @@ import {
   PlaceholderText,
   InputContainer,
 } from "./styles";
+import SignUpModal from "../../components/Modals/signUpModal";
 
 export default function Registerpage() {
   const navigate = useNavigate();
@@ -20,6 +23,21 @@ export default function Registerpage() {
   let [IsName, setIsName] = useState(false);
   let [IsUsername, setIsUsername] = useState(false);
 
+  const [signUpButtonClick, setSignupButtonClick] =
+    useRecoilState(signUpModalState);
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // 폼 제출 방지
+
+    // 여기서 회원가입 처리 등을 수행하고
+    // setIsRegistered(true); 와 같은 방식으로 상태 변경
+
+    setTimeout(() => {
+      setIsRegistered(true);
+      setSignupButtonClick(true);
+    }, 2000);
+  };
   const onEmailHandler = (event) => {
     const currentEmail = event.currentTarget.value;
     setEmail(currentEmail);
@@ -66,7 +84,10 @@ export default function Registerpage() {
 
   return (
     <Wrapper>
-      <form style={{ display: "flex", flexDirection: "column" }}>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <CustomInput
           placeholder="이메일"
           type="email"
@@ -95,13 +116,8 @@ export default function Registerpage() {
           onChange={onPasswordHandler}
           IsValid={IsPassword}
         />
-        <RegisterButton
-          onClick={() => {
-            navigate("/profile");
-          }}
-        >
-          가입
-        </RegisterButton>
+        <RegisterButton>가입</RegisterButton>
+        {signUpButtonClick && <SignUpModal />}
       </form>
     </Wrapper>
   );
