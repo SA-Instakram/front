@@ -1,15 +1,18 @@
 import { useState } from "react";
 import Header from "../../components/Header/header";
-import { Wrapper } from "./styles";
+import { Wrapper, EditButton } from "./styles";
 import FollowList from "../../components/FollowList/followList";
+import LogoutModal from "../../components/Modals/logoutModal";
 import { useRecoilState } from "recoil";
-import { followListClickState } from "../../states/states";
+import { followListClickState, logoutModalState } from "../../states/states";
 import { userInfoState } from "../../states/userStates";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const [followListClick, setFollowListClick] =
     useRecoilState(followListClickState);
+  const [logoutButtonClick, setLogoutButtonClick] =
+    useRecoilState(logoutModalState);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
 
   const images = [
@@ -44,14 +47,23 @@ export default function Profile() {
             }}
           >
             <label>{userInfo.userId}</label>
-            <button
-              style={{ marginTop: "10px" }}
-              onClick={() => {
-                navigate("/editprofile");
-              }}
-            >
-              프로필 편집 or 팔로우
-            </button>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <EditButton
+                onClick={() => {
+                  navigate("/editprofile");
+                }}
+              >
+                프로필 편집
+              </EditButton>
+              <EditButton
+                onClick={() => {
+                  setLogoutButtonClick(true);
+                }}
+              >
+                로그아웃
+              </EditButton>
+              {logoutButtonClick ? <LogoutModal /> : null}
+            </div>
           </div>
         </div>
 
