@@ -5,6 +5,7 @@ import Profile from "./pages/Profile/profile";
 import Loginpage from "./pages/login/login";
 import NewFeed from "./pages/NewFeed/newFeed";
 import Registerpage from "./pages/Register/register";
+import EditProfile from "./pages/EditProfile/editprofile";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Loginpage />} />
         <Route path="/newfeed" element={<NewFeed />} />
         <Route path="/register" element={<Registerpage />} />
+        <Route path="/editprofile" element={<EditProfile />} />
       </Routes>
     </div>
   );

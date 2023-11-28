@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
+import { loginModalState } from "../../states/states";
 import {
   Wrapper,
   loginbuttonStyle,
@@ -9,6 +11,7 @@ import {
   Registerquestion,
   Registerletter,
 } from "./styles";
+import LoginModal from "../../components/Modals/loginModal";
 
 export default function Loginpage() {
   const navigate = useNavigate();
@@ -20,6 +23,8 @@ export default function Loginpage() {
   const onPasswordHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
+  const [LoginButtonClick, setLoginButtonClick] =
+    useRecoilState(loginModalState);
 
   return (
     <Wrapper>
@@ -42,12 +47,14 @@ export default function Loginpage() {
         <br />
         <button
           style={loginbuttonStyle}
-          onClick={() => {
-            navigate("/");
+          onClick={(event) => {
+            event.preventDefault();
+            setLoginButtonClick(true);
           }}
         >
           <BoldText>로그인</BoldText>
         </button>
+        {LoginButtonClick ? <LoginModal /> : null}
         <Registerquestion>
           계정이 없으신가요?
           <Registerletter
