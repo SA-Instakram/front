@@ -5,6 +5,7 @@ import FollowList from "../../components/FollowList/followList";
 import { useRecoilState } from "recoil";
 import { followListClickState } from "../../states/states";
 import { userInfoState } from "../../states/userStates";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const [followListClick, setFollowListClick] =
@@ -19,6 +20,7 @@ export default function Profile() {
     "vava1.jpeg",
     "vava2.jpeg",
   ];
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -42,7 +44,14 @@ export default function Profile() {
             }}
           >
             <label>{userInfo.userId}</label>
-            <button style={{ marginTop: "10px" }}>프로필 편집 or 팔로우</button>
+            <button
+              style={{ marginTop: "10px" }}
+              onClick={() => {
+                navigate("/editprofile");
+              }}
+            >
+              프로필 편집 or 팔로우
+            </button>
           </div>
         </div>
 

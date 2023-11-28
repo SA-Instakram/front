@@ -4,10 +4,17 @@ import {
   feedMoreButtonClickState,
 } from "../../states/states";
 import { Wrapper } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export default function OptionModal() {
   const [, setFeedMoreButtonClick] = useRecoilState(feedMoreButtonClickState);
   const [, setDeleteModalState] = useRecoilState(deleteModalState);
+
+  const navigate = useNavigate();
+
+  const handleLabelClick = () => {
+    navigate("/modifyfeed"); // '/edit' 페이지로 이동
+  };
 
   return (
     <Wrapper>
@@ -21,7 +28,7 @@ export default function OptionModal() {
           삭제
         </label>
         <div></div>
-        <label>수정</label>
+        <label onClick={handleLabelClick}>수정</label>
         <div></div>
         <label
           onClick={() => {

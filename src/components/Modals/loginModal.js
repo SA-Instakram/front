@@ -1,21 +1,21 @@
 import { useRecoilState } from "recoil";
-import { signUpModalState } from "../../states/states";
+import { loginModalState } from "../../states/states";
 import { useNavigate } from "react-router-dom";
 import { Wrapper } from "./loginstyles";
 
-export default function SignUpModal() {
-  const [, setSignupButtonClick] = useRecoilState(signUpModalState);
+export default function LoginModal() {
+  const [, setLoginButtonClick] = useRecoilState(loginModalState);
   const navigate = useNavigate();
 
   return (
     <Wrapper>
       <div>
-        <label>회원가입 성공</label>
+        <label>로그인 성공</label>
         <div></div>
         <label
           onClick={() => {
-            setSignupButtonClick(false);
-            navigate("/login");
+            setLoginButtonClick(false);
+            navigate("/");
           }}
         >
           확인
