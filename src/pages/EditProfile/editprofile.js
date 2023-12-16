@@ -8,6 +8,7 @@ import {
   ImagePreview,
 } from "./styles";
 import { useState } from "react";
+import profileAPI from "../../api/profileAPI";
 
 export default function EditProfile() {
   const navigate = useNavigate();
@@ -28,6 +29,25 @@ export default function EditProfile() {
       reader.readAsDataURL(file);
     }
   };
+
+  const handleModifyProfile = () => {
+    const data = {
+      instaId: "ji-hunc",
+      introduce: "aaaa",
+      image: "image",
+      name: "qwe",
+    };
+
+    profileAPI
+      .editProfile(data)
+      .then((res) => {
+        console.log(res);
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Wrapper>
       <HeadWrapper>
@@ -48,6 +68,7 @@ export default function EditProfile() {
           alt="succes editprofile"
           onClick={() => {
             navigate(-1);
+            handleModifyProfile();
           }}
         ></img>
       </HeadWrapper>

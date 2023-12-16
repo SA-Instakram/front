@@ -9,21 +9,39 @@ import {
 import { useRecoilState } from "recoil";
 import { commentViewClickState } from "../../states/states";
 import UserComment from "./userComment";
+import { useEffect, useState } from "react";
+import commentAPI from "../../api/commentAPI";
+import { userInfoState } from "../../states/userStates";
 
-export default function Comment() {
+export default function Comment(props) {
   const navigate = useNavigate();
+
+  const [userInfo] = useRecoilState(userInfoState);
   const [, setCommentViewClick] = useRecoilState(commentViewClickState);
+  const [content, setContent] = useState();
 
   const clickCancelCommentButton = () => {
     setCommentViewClick(false);
   };
 
-  const commonComments = [
-    "Awesome!",
-    "Love it!",
-    "Followed!",
-    "Looks amazing!",
-  ];
+  const handlePostComment = () => {
+    const data = {
+      userName: userInfo.userId,
+      content: content,
+      postId: props.postId,
+    };
+    console.log(data);
+    commentAPI
+      .postComment(data)
+      .then((res) => {
+        console.log(res);
+      })
+      .then((error) => console.log(error));
+  };
+
+  const handleChangeInput = (event) => {
+    setContent(event.currentTarget.value);
+  };
 
   return (
     <Wrapper>
@@ -45,13 +63,22 @@ export default function Comment() {
             </span>
           </div>
         </ArticleContext>
-        {commonComments.map((key, idx) => {
-          return <UserComment comment={key} />;
-        })}
+        {props.comments
+          ? props.comments.map((comment, idx) => {
+              return (
+                <UserComment
+                  nickName={comment.nickName}
+                  comment={comment.content}
+                />
+              );
+            })
+          : null}
         <NewCommentBox>
           <img src="/icons/user.svg" alt="profile" />
-          <CommentInput />
-          <label style={{ color: "#0000ff" }}>게시</label>
+          <CommentInput onChange={handleChangeInput} />
+          <label onClick={handlePostComment} style={{ color: "#0000ff" }}>
+            게시
+          </label>
         </NewCommentBox>
       </div>
     </Wrapper>

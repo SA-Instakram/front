@@ -7,6 +7,16 @@ export const commentViewClickState = atom({
 
 export const followListClickState = atom({
   key: "followListClickState",
+  default: [],
+});
+
+export const followerListClickState = atom({
+  key: "followerListClickState",
+  default: false,
+});
+
+export const followingListClickState = atom({
+  key: "followingListClickState",
   default: false,
 });
 

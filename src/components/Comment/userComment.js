@@ -20,7 +20,7 @@ export default function UserComment(props) {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <img src="/icons/user.svg" alt="profile" />
         <div>
-          <span>NickName</span>
+          <span>{props.nickName}</span>
           <span style={{ textAlign: "left", margin: "10px 0px" }}>
             {props.comment}
           </span>

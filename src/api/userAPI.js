@@ -6,10 +6,7 @@ export default {
     return axios.post("/member/signup", data);
   },
   login(data) {
-    return axios.post("", data);
-  },
-  logout(data) {
-    return axios.post("", data);
+    return axios.post("/member/login", data);
   },
   getUser() {
     return axios.get("");

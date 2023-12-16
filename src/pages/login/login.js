@@ -12,11 +12,15 @@ import {
   Registerletter,
 } from "./styles";
 import LoginModal from "../../components/Modals/loginModal";
+import userAPI from "../../api/userAPI";
+import { userInfoState } from "../../states/userStates";
 
 export default function Loginpage() {
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+
   const navigate = useNavigate();
-  let [Email, setEmail] = useState("");
-  let [Password, setPassword] = useState("");
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value);
   };
@@ -26,6 +30,35 @@ export default function Loginpage() {
   const [LoginButtonClick, setLoginButtonClick] =
     useRecoilState(loginModalState);
 
+  const loginRequest = () => {
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    // default: {
+    //   name: "Jihun Choi",
+    //   userId: "ji-hunc",
+    //   article: 6,
+    //   followers: 31,
+    //   followings: 20,
+    // },
+    console.log("loginData", data);
+    userAPI
+      .login(data)
+      .then((res) => {
+        setUserInfo({
+          name: res.data.name,
+          userId: res.data.userId,
+          article: res.data.article,
+          followers: res.data.followers,
+          followings: res.data.followings,
+        });
+        console.log("loginResponse", res);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <Wrapper>
       <form style={{ display: "flex", flexDirection: "column" }}>
@@ -34,14 +67,14 @@ export default function Loginpage() {
         <CustomInput
           placeholder="전화번호 사용자 이름 또는 이메일"
           type="email"
-          value={Email}
+          value={email}
           onChange={onEmailHandler}
         />
         <label>Password</label>
         <CustomInput
           placeholder="비밀번호"
           type="password"
-          value={Password}
+          value={password}
           onChange={onPasswordHandler}
         />
         <br />
@@ -49,7 +82,9 @@ export default function Loginpage() {
           style={loginbuttonStyle}
           onClick={(event) => {
             event.preventDefault();
-            setLoginButtonClick(true);
+            loginRequest();
+
+            // setLoginButtonClick(true);
           }}
         >
           <BoldText>로그인</BoldText>

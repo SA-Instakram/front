@@ -1,9 +1,21 @@
 import { useRecoilState } from "recoil";
 import { deleteModalState } from "../../states/states";
 import { Wrapper } from "./styles";
+import postAPI from "../../api/postAPI";
 
-export default function DeleteModal() {
+export default function DeleteModal(props) {
   const [, setDeleteModalState] = useRecoilState(deleteModalState);
+
+  const handleDeleteButtonClick = (postId) => {
+    postAPI
+      .deletePost(postId)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <Wrapper>
@@ -13,6 +25,7 @@ export default function DeleteModal() {
         <label
           style={{ color: "red", fontWeight: "bold" }}
           onClick={() => {
+            handleDeleteButtonClick(props.postId);
             setDeleteModalState(false);
           }}
         >

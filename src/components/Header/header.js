@@ -29,7 +29,7 @@ export default function Header() {
         <img
           src={"/icons/user.svg"}
           onClick={() => {
-            navigate(`/${userInfo.userId}`);
+            navigate(`/profile/${userInfo.userId}`);
           }}
           alt="user icon"
         />

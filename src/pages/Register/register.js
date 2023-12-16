@@ -38,11 +38,10 @@ export default function Registerpage() {
         instaId: instaId,
         name: name,
       };
-      console.log("data1", data);
+      console.log("signupData", data);
       userAPI
         .signUp(data)
         .then((res) => {
-          console.log("data", data);
           console.log(res);
         })
         .catch((error) => console.log(error));
@@ -139,7 +138,7 @@ export default function Registerpage() {
           IsValid={IsPassword}
         />
         <RegisterButton onClick={signupRequest}>가입</RegisterButton>
-        {signUpButtonClick && <SignUpModal />}
+        {/* {signUpButtonClick && <SignUpModal />} */}
       </form>
     </Wrapper>
   );
