@@ -10,13 +10,14 @@ import {
   InputContainer,
 } from "./styles";
 import SignUpModal from "../../components/Modals/signUpModal";
+import userAPI from "../../api/userAPI";
 
 export default function Registerpage() {
   const navigate = useNavigate();
-  let [Email, setEmail] = useState("");
-  let [Password, setPassword] = useState("");
-  let [Name, setName] = useState("");
-  let [Username, setUsername] = useState("");
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let [name, setName] = useState("");
+  let [instaId, setInstaId] = useState("");
 
   let [IsEmail, setIsEmail] = useState(false);
   let [IsPassword, setIsPassword] = useState(false);
@@ -26,6 +27,27 @@ export default function Registerpage() {
   const [signUpButtonClick, setSignupButtonClick] =
     useRecoilState(signUpModalState);
   const [isRegistered, setIsRegistered] = useState(false);
+
+  const signupRequest = () => {
+    if (false) {
+      alert("qwe");
+    } else {
+      const data = {
+        email: email,
+        password: password,
+        instaId: instaId,
+        name: name,
+      };
+      console.log("data1", data);
+      userAPI
+        .signUp(data)
+        .then((res) => {
+          console.log("data", data);
+          console.log(res);
+        })
+        .catch((error) => console.log(error));
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // 폼 제출 방지
@@ -73,7 +95,7 @@ export default function Registerpage() {
   };
   const onUsernameHandler = (event) => {
     const currentUsername = event.currentTarget.value;
-    setUsername(currentUsername);
+    setInstaId(currentUsername);
     const userNameRegExp = /^[a-zA-z0-9]{4,12}$/;
     if (!userNameRegExp.test(currentUsername)) {
       setIsUsername(false);
@@ -91,32 +113,32 @@ export default function Registerpage() {
         <CustomInput
           placeholder="이메일"
           type="email"
-          value={Email}
+          value={email}
           onChange={onEmailHandler}
           IsValid={IsEmail}
         />
         <CustomInput
           placeholder="성명"
           type="name"
-          value={Name}
+          value={name}
           onChange={onNameHandler}
           IsValid={IsName}
         />
         <CustomInput
           placeholder="사용자 이름"
-          type="username"
-          value={Username}
+          type="instaId"
+          value={instaId}
           onChange={onUsernameHandler}
           IsValid={IsUsername}
         />
         <CustomInput
           placeholder="비밀번호"
           type="password"
-          value={Password}
+          value={password}
           onChange={onPasswordHandler}
           IsValid={IsPassword}
         />
-        <RegisterButton>가입</RegisterButton>
+        <RegisterButton onClick={signupRequest}>가입</RegisterButton>
         {signUpButtonClick && <SignUpModal />}
       </form>
     </Wrapper>
