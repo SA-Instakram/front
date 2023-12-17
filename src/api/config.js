@@ -8,6 +8,6 @@ export const getBaseURL = () => {
   }
 };
 
-axios.defaults.baseURL = getBaseURL();
+axios.defaults.baseURL = "http://localhost:8080";
 
 export default axios;

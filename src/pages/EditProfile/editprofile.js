@@ -17,6 +17,8 @@ export default function EditProfile() {
   );
   const [isImageChanged, setIsImageChanged] = useState(false);
 
+  const [content, setContent] = useState("");
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
 
@@ -29,13 +31,16 @@ export default function EditProfile() {
       reader.readAsDataURL(file);
     }
   };
+  const handleChangeContent = (event) => {
+    setContent(event.currentTarget.value);
+  };
 
   const handleModifyProfile = () => {
     const data = {
       instaId: "ji-hunc",
-      introduce: "aaaa",
+      introduce: "abcd",
       image: "image",
-      name: "qwe",
+      name: content,
     };
 
     profileAPI
@@ -94,7 +99,7 @@ export default function EditProfile() {
         <Label>이름</Label>
         <Input></Input>
         <Label>사용자 이름</Label>
-        <Input></Input>
+        <Input value={content} onChange={handleChangeContent}></Input>
         <Label>소개</Label>
         <Input></Input>
       </InputWrapper>

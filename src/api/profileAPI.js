@@ -2,7 +2,7 @@ import axios from "./config";
 
 // Access token
 const accessToken =
-  "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZWVob29uNjIwMTdAZ21haWwuY29tIiwiaWF0IjoxNzAyNzMxMzUwLCJleHAiOjE3MDI4MDMzNTB9.bb1-_Y0u6g6sHC_9qkQHohBBY7LiC4gjIb_ISiYMoZF2Ulf8K3Mji9Kt5cKB-UuRaGsOJvN5ofW8NPhjMf8p-g";
+  "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqamhpbnUxMDA0QGdtYWlsLmNvbSIsImlhdCI6MTcwMjgyMTcwNiwiZXhwIjoxNzA0MDMxMzA2fQ.y2yo4OU2S9ylp2w9MuwdeQ1bP3tMrn4iL1mViZmeD5EP3H5cP6MZyO9gKiG5UFPbJxqbSb7WU2CV4acVPQEf_Q";
 
 // Axios 전역 설정
 // axios.defaults.headers.common["Authorization"] = `${accessToken}`;

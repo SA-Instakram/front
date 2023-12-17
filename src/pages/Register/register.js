@@ -95,7 +95,8 @@ export default function Registerpage() {
   const onUsernameHandler = (event) => {
     const currentUsername = event.currentTarget.value;
     setInstaId(currentUsername);
-    const userNameRegExp = /^[a-zA-z0-9]{4,12}$/;
+    const userNameRegExp =
+      /^[a-zA-Z0-9가-힣!@#$%^&*()_+{}|:"<>?~`\-=[\]\\;',./]{2,25}$/;
     if (!userNameRegExp.test(currentUsername)) {
       setIsUsername(false);
     } else {
